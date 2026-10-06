@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankita - Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #fff0f6;
+            color: #333;
+        }
+
+        header {
+            background: #e91e63;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 20px;
+        }
+
+        nav {
+            background: #c2185b;
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffd1e3;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2 {
+            color: #e91e63;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .hobbies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .hobby {
+            background: #f8bbd0;
+            color: #880e4f;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .goal {
+            background: #fce4ec;
+            border-left: 6px solid #e91e63;
+        }
+
+        footer {
+            background: #e91e63;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 32px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Hi, I'm Ankita 💗</h1>
+        <p>Engineering Student | Future Software Engineer</p>
+    </header>
+
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#education">Education</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#goal">My Goal</a>
+    </nav>
+
+    <div class="container">
+
+        <section class="card" id="about">
+            <h2>About Me</h2>
+            <p>
+                Hello! My name is <strong>Ankita</strong>. I am an Engineer
+                and currently studying at <strong>JIT, Davangere</strong>.
+                I love the color <strong>pink</strong> and I enjoy learning
+                new things and improving my skills.
+            </p>
+        </section>
+
+        <section class="card" id="education">
+            <h2>Education</h2>
+            <p>
+                I am currently pursuing my engineering studies at
+                <strong>JIT, Davangere</strong>.
+            </p>
+        </section>
+
+        <section class="card" id="hobbies">
+            <h2>My Hobbies</h2>
+            <div class="hobbies">
+                <div class="hobby">📚 Reading Books</div>
+                <div class="hobby">✍️ Writing</div>
+                <div class="hobby">🎨 Drawing Pictures</div>
+            </div>
+        </section>
+
+        <section class="card goal" id="goal">
+            <h2>My Career Goal</h2>
+            <p>
+                My dream is to become a successful
+                <strong>Software Engineer</strong>. I want to develop useful
+                software, learn new technologies, and build a successful
+                career in the IT industry.
+            </p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>Made with 💗 by Ankita</p>
+    </footer>
+
+</body>
+</html>
