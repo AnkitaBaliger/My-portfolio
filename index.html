@@ -3,118 +3,363 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ankita - Portfolio</title>
+
+    <title>Ankita | Engineer Portfolio</title>
 
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background: #fff0f6;
+            background: linear-gradient(135deg, #fff0f6, #ffe4ef, #fff);
             color: #333;
+            min-height: 100vh;
         }
 
-        header {
-            background: #e91e63;
-            color: white;
+        /* Navigation */
+        nav {
+            width: 100%;
+            padding: 18px 8%;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(233, 30, 99, 0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            color: #e91e63;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #880e4f;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #e91e63;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px;
         }
 
-        header h1 {
-            font-size: 42px;
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .engineer-icon {
+            font-size: 70px;
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            color: #c2185b;
             margin-bottom: 10px;
         }
 
-        header p {
-            font-size: 20px;
+        .hero h1 span {
+            color: #e91e63;
         }
 
-        nav {
-            background: #c2185b;
-            text-align: center;
-            padding: 15px;
+        .hero h2 {
+            font-size: 27px;
+            color: #555;
+            margin-bottom: 20px;
         }
 
-        nav a {
+        .hero p {
+            font-size: 19px;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        .badge {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #e91e63, #ff80ab);
             color: white;
-            text-decoration: none;
-            margin: 0 15px;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
+        }
+
+        /* Common Section */
+        section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            color: #c2185b;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #777;
+        }
+
+        /* About */
+        .about-card {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 35px rgba(194, 24, 91, 0.12);
+            border-top: 5px solid #e91e63;
+            text-align: center;
+        }
+
+        .about-card p {
+            font-size: 18px;
+            line-height: 1.9;
+            color: #555;
+        }
+
+        .highlight {
+            color: #e91e63;
             font-weight: bold;
         }
 
-        nav a:hover {
-            color: #ffd1e3;
+        /* Education */
+        .education-card {
+            max-width: 800px;
+            margin: auto;
+            background: linear-gradient(135deg, #fff, #fff0f6);
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.12);
         }
 
-        .container {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 20px;
-        }
-
-        .card {
-            background: white;
-            padding: 30px;
-            margin-bottom: 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .card h2 {
-            color: #e91e63;
+        .education-icon {
+            font-size: 50px;
             margin-bottom: 15px;
         }
 
-        .card p {
+        .education-card h3 {
+            color: #c2185b;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .education-card p {
             font-size: 18px;
-            line-height: 1.7;
+            color: #666;
         }
 
+        /* Hobbies */
         .hobbies {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 15px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1000px;
+            margin: auto;
         }
 
-        .hobby {
-            background: #f8bbd0;
-            color: #880e4f;
-            padding: 12px 20px;
-            border-radius: 25px;
-            font-weight: bold;
+        .hobby-card {
+            background: white;
+            padding: 35px 20px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.12);
+            transition: 0.4s;
         }
 
-        .goal {
-            background: #fce4ec;
-            border-left: 6px solid #e91e63;
+        .hobby-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(233, 30, 99, 0.2);
         }
 
+        .hobby-card .icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .hobby-card h3 {
+            color: #c2185b;
+            margin-bottom: 10px;
+        }
+
+        .hobby-card p {
+            color: #777;
+        }
+
+        /* Engineering Skills */
+        .engineering {
+            background: #fff5f9;
+        }
+
+        .engineering-box {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .engineering-item {
+            background: white;
+            padding: 25px 15px;
+            text-align: center;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px rgba(233, 30, 99, 0.1);
+        }
+
+        .engineering-item .symbol {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .engineering-item h3 {
+            color: #c2185b;
+            font-size: 17px;
+        }
+
+        /* Career Goal */
+        .goal-card {
+            max-width: 900px;
+            margin: auto;
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            color: white;
+            background: linear-gradient(135deg, #c2185b, #e91e63, #ff80ab);
+            box-shadow: 0 15px 35px rgba(194, 24, 91, 0.25);
+        }
+
+        .goal-card .goal-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .goal-card h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .goal-card p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* Quote */
+        .quote {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .quote p {
+            font-size: 24px;
+            font-style: italic;
+            color: #ad1457;
+        }
+
+        /* Footer */
         footer {
-            background: #e91e63;
+            background: #880e4f;
             color: white;
             text-align: center;
-            padding: 20px;
-            margin-top: 30px;
+            padding: 25px;
         }
 
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 32px;
+        footer p {
+            margin: 5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
             }
 
-            nav a {
-                display: inline-block;
-                margin: 5px;
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
 
-            .container {
-                padding: 10px;
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .hero h2 {
+                font-size: 22px;
+            }
+
+            .hobbies {
+                grid-template-columns: 1fr;
+            }
+
+            .engineering-box {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .engineering-box {
+                grid-template-columns: 1fr;
+            }
+
+            .about-card,
+            .goal-card {
+                padding: 30px 20px;
             }
         }
     </style>
@@ -122,61 +367,205 @@
 
 <body>
 
-    <header>
-        <h1>Hi, I'm Ankita 💗</h1>
-        <p>Engineering Student | Future Software Engineer</p>
-    </header>
-
+    <!-- Navigation -->
     <nav>
-        <a href="#about">About Me</a>
-        <a href="#education">Education</a>
-        <a href="#hobbies">Hobbies</a>
-        <a href="#goal">My Goal</a>
+        <div class="logo">⚙️ Ankita<span>.</span></div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#goal">Goal</a></li>
+        </ul>
     </nav>
 
-    <div class="container">
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-content">
 
-        <section class="card" id="about">
-            <h2>About Me</h2>
+            <div class="engineer-icon">
+                👩‍💻⚙️
+            </div>
+
+            <h1>Hello, I'm <span>Ankita</span> 💗</h1>
+
+            <h2>⚙️ Engineer | 💻 Future Software Engineer</h2>
+
             <p>
-                Hello! My name is <strong>Ankita</strong>. I am an Engineer
-                and currently studying at <strong>JIT, Davangere</strong>.
-                I love the color <strong>pink</strong> and I enjoy learning
-                new things and improving my skills.
+                Welcome to my personal profile!
+                I am an engineering student who loves technology,
+                creativity and learning new things.
             </p>
-        </section>
 
-        <section class="card" id="education">
-            <h2>Education</h2>
+            <div class="badge">
+                💗 Dream • Design • Develop • Engineer ⚙️
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="section-title">
+            <h2>🌸 About Me</h2>
+            <p>Get to know me</p>
+        </div>
+
+        <div class="about-card">
             <p>
-                I am currently pursuing my engineering studies at
+                Hi! My name is <span class="highlight">Ankita</span>.
+                I am an <span class="highlight">Engineer</span> studying at
+                <span class="highlight">JIT, Davangere</span>.
+                I love the color <span class="highlight">Pink 💗</span>.
+                I enjoy combining creativity with technology and
+                always try to learn something new.
+            </p>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+        <div class="section-title">
+            <h2>🎓 Education</h2>
+            <p>My academic journey</p>
+        </div>
+
+        <div class="education-card">
+
+            <div class="education-icon">
+                🎓⚙️
+            </div>
+
+            <h3>Engineering Student</h3>
+
+            <p>
+                Currently studying at
                 <strong>JIT, Davangere</strong>.
             </p>
-        </section>
 
-        <section class="card" id="hobbies">
-            <h2>My Hobbies</h2>
-            <div class="hobbies">
-                <div class="hobby">📚 Reading Books</div>
-                <div class="hobby">✍️ Writing</div>
-                <div class="hobby">🎨 Drawing Pictures</div>
+            <p>
+                📚 Learning • 💻 Technology • ⚙️ Engineering
+            </p>
+
+        </div>
+    </section>
+
+    <!-- Hobbies -->
+    <section id="hobbies">
+        <div class="section-title">
+            <h2>✨ My Hobbies</h2>
+            <p>Things I love doing in my free time</p>
+        </div>
+
+        <div class="hobbies">
+
+            <div class="hobby-card">
+                <div class="icon">📚</div>
+                <h3>Reading Books</h3>
+                <p>
+                    I enjoy reading books and discovering
+                    new ideas and stories.
+                </p>
             </div>
-        </section>
 
-        <section class="card goal" id="goal">
-            <h2>My Career Goal</h2>
+            <div class="hobby-card">
+                <div class="icon">✍️</div>
+                <h3>Writing</h3>
+                <p>
+                    Writing helps me express my thoughts
+                    and creativity.
+                </p>
+            </div>
+
+            <div class="hobby-card">
+                <div class="icon">🎨</div>
+                <h3>Drawing</h3>
+                <p>
+                    I love drawing pictures and
+                    expressing my imagination through art.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Engineering Section -->
+    <section class="engineering">
+        <div class="section-title">
+            <h2>⚙️ Engineering World</h2>
+            <p>My passion for technology and creativity</p>
+        </div>
+
+        <div class="engineering-box">
+
+            <div class="engineering-item">
+                <div class="symbol">⚙️</div>
+                <h3>Engineering</h3>
+            </div>
+
+            <div class="engineering-item">
+                <div class="symbol">💻</div>
+                <h3>Programming</h3>
+            </div>
+
+            <div class="engineering-item">
+                <div class="symbol">🧠</div>
+                <h3>Problem Solving</h3>
+            </div>
+
+            <div class="engineering-item">
+                <div class="symbol">🚀</div>
+                <h3>Innovation</h3>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Career Goal -->
+    <section id="goal">
+        <div class="section-title">
+            <h2>🚀 My Career Goal</h2>
+            <p>Where I want to go</p>
+        </div>
+
+        <div class="goal-card">
+
+            <div class="goal-icon">
+                👩‍💻🚀
+            </div>
+
+            <h2>Future Software Engineer</h2>
+
             <p>
                 My dream is to become a successful
-                <strong>Software Engineer</strong>. I want to develop useful
-                software, learn new technologies, and build a successful
-                career in the IT industry.
+                <strong>Software Engineer</strong>.
+                I want to build innovative software,
+                solve real-world problems, learn modern
+                technologies and create something useful
+                for people.
             </p>
-        </section>
 
+            <br>
+
+            <p>
+                💡 Learn → 🧠 Build → 💻 Code → 🚀 Innovate
+            </p>
+
+        </div>
+    </section>
+
+    <!-- Quote -->
+    <div class="quote">
+        <p>
+            "Dream big, keep learning, and build your future." 💗⚙️
+        </p>
     </div>
 
+    <!-- Footer -->
     <footer>
-        <p>Made with 💗 by Ankita</p>
+        <p>⚙️ Designed with 💗 by Ankita</p>
+        <p>👩‍💻 Future Software Engineer 🚀</p>
     </footer>
 
 </body>
